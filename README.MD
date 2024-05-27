@@ -12,9 +12,9 @@
   6. pip install gunicorn
   7. pip install pytest
 
-## Index.HTML
+## HTML. INDEX
 
- Create Templates file 
+ Create Templates folder 
 
 ## Install requirements
 
@@ -22,7 +22,7 @@
 
 ## Run App
 
-  python3  toDoList.py 
+  python3  main.py 
 
 ## **Testing** 
 
