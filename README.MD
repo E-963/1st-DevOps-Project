@@ -12,7 +12,7 @@
   6. pip install gunicorn
   7. pip install pytest
 
-## HTML. INDEX
+## Index.HTML
 
  Create Templates file 
 
