@@ -1,6 +1,6 @@
 # Intiallization
 
-> Step 1: Clone the Repository: [text](https://github.com/E-963/ToDoList-DEPI-Project/tree/main)
+> Step 1: Clone the Repository: (https://github.com/E-963/ToDoList-DEPI-Project/tree/main)
 
 > Step2: Bash Command for Creat a Virtual Environment
 
