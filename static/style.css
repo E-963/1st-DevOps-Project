@@ -1,0 +1,91 @@
+/* Basic styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for the to-do list */
+.container {
+  width: 600px; /* Adjust width as needed */
+  margin: 50px auto;
+  border: 1px solid #be8976;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #a57979; /* Optional background color */
+}
+
+/* Header for the to-do list */
+.header {
+  text-align: center;
+  font-size: 24px; /* Adjust font size */
+  margin-bottom: 20px;
+  color: #ae2323; /* Header text color */
+}
+
+/* Unordered list (ul) for to-do items */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual to-do list item (li) */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px; /* Adjust padding */
+  border-bottom: 1px solid #ddd; /* Border color */
+  cursor: pointer; /* Enable hover effect */
+}
+
+  /* Hover effect for to-do items (optional) */
+  li:hover {
+    background-color: #eee;
+  }
+
+/* Checkbox for each to-do item */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Adjust margin */
+}
+
+/* Text for each to-do item */
+.todo-text {
+  flex-grow: 1;
+  font-size: 18px; /* Adjust font size */
+}
+
+/* Completed task styles */
+.completed {
+  text-decoration: line-through;
+  color: #aaa; /* Completed task text color */
+}
+
+/* Add task form (optional) */
+.add-task-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+  .add-task-input {
+    flex-grow: 1;
+    padding: 5px 10px;
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 5px;
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .add-task-button {
+    padding: 5px 10px; /* Adjust padding */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+    /* Button hover effect (optional) */
+    .add-task-button:hover {
+      background-color: #eee;
+    }
