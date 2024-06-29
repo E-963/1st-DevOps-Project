@@ -8,9 +8,6 @@ paths :
 - '.github/workflows/pytest.yml'
 - 'templates/**'
 - 'tests/*.py'
-  # schedule to run daily at midnight UTC
-schedule:
-   - cron '12:00' #every day at midnight
 
 jobs:
   test:
