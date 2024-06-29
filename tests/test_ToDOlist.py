@@ -1,17 +1,13 @@
-import test_ToDOlist
-from flask import Flask, render_template, request, redirect, url_for
+import pytest
+from main import app
 
-app = Flask(__name__, template_folder='templates')
+@pytest.fixture
+def client():
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
-todos = []
-class TodoListTest(test_ToDOlist.TestCase):
-
-    def setUp(self):
-        self.app = app
-        self.app.testing = True
-        self.client = self.app.test_client()
-        # Clear todos for each test
-        todos.clear()
-
-if __name__ == '__main__':
-    test_ToDOlist.main()
+def test_homepage(client):
+    response = client.get('/')
+    assert response.status_code == 200
+    assert b'To-do List' in response.data
