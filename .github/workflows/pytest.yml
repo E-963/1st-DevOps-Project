@@ -45,3 +45,9 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todolist-depi-project:latest
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+           push: true
+           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todolist-depi-project:latest
+            the version in tags in docker "
