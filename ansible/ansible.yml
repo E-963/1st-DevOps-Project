@@ -1,0 +1,51 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Python
+      apt:
+        name: python3
+        state: present
+
+    - name: Install pip
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install Flask
+      pip:
+        name: flask
+        state: present
+
+    - name: Copy Flask app files
+      copy:
+        src: /path/to/your/flask/app
+        dest: /opt/flask_app
+
+    - name: Install Flask dependencies
+      pip:
+        requirements: /opt/flask_app/requirements.txt
+        state: present
+
+    - name: Set up Flask app service
+      systemd:
+        name: flask_app
+        state: started
+        enabled: true
+        daemon_reload: yes
+        restart: yes
+        user: your_username
+        group: your_groupname
+        working_directory: /opt/flask_app
+        environment:
+          FLASK_APP: "app.py"
+          FLASK_ENV: "production"
+          FLASK_RUN_HOST: "0.0.0.0"
+          FLASK_RUN_PORT: "3000"
+        exec_start: /usr/bin/bash -lc "flask run"
+
+    - name: Allow incoming traffic on port 3000
+      ufw:
+        rule: allow
+        port: 3000
+        proto: tcp
