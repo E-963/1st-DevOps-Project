@@ -4,7 +4,11 @@ on:
   # push to main branch
   push:  [main]
   pull:  [main]
-
+paths : 
+- '*.py'
+- '.github/workflows/pytest.yml'
+- 'templates/**'
+- 'tests/*.py'
   # schedule to run daily at midnight UTC
 schedule:
    - cron '12:00' #every day at midnight
@@ -46,6 +50,8 @@ jobs:
            with:
            push: true
            tags: user/app:latest
+
+    
       
 
 
