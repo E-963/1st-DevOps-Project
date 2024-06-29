@@ -1,8 +1,7 @@
 name: pytest
 
-on: 
-  # push to main branch
-  push:  [main]
+on: push
+
 paths : 
 - '*.py'
 - '.github/workflows/pytest.yml'
