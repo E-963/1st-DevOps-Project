@@ -31,15 +31,16 @@ gunicorn wsgi
 
 pytest
 
-## GITHUB commands 
+## GITHUB commands
 
- ## - Run
+## - Run
 
-  git config --global user.email "you@example.com"
+  git config --global user.email "<you@example.com>"
   git config --global user.name "Your Name"
   to set your account's default identity.
 
 ## - for add updates to the repository
+
     git Add .
 
     git commit -m "comment"
@@ -50,8 +51,7 @@ pytest
     
     git status   #for check the last status on repo.
 
-
-## docker_ec2_watchtower_demo
+*** docker_ec2_watchtower_demo
 
     Create an EC2 Instance (t3.medium, ubuntu image, firewalll allows http from anywhere)
 
