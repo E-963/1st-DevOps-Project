@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Edit your planner</title>
-  </head>
-  <body>
-    <h1>Edit Todo</h1>
-    <form action="{{ url_for('edit', index=index) }}" method="post">
-      <input type="text" name="todo" value="{{ todo['task'] }}">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Edit Task</h2>
+    <form id="edit-task-form" action="{{ url_for('edit', index=todo['index']) }}" method="post" class="edit-task-form">
+      <input type="text" name="todo" id="task-input" value="{{ todo['task'] }}" required>
       <button type="submit">Save</button>
     </form>
-  </body>
-</html>
+  </div>
+
+  <script>
+    const form = document.getElementById('edit-task-form') 
