@@ -1,9 +1,10 @@
-version: '3.8'
 services:
  app:
-  build: ./app
-  container_name: app
-  environment:
-    - PYTHONUNBUFFERED=1
+  build: .
+  container_name: todolist-app
+  volumes:
+    - ./:app
+  ports:
+    - "3000:3000" 
     
   command: [ "gunicorn", "--bind", "0.0.0.0:3000", "wsgi" ]
