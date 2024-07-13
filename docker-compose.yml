@@ -1,9 +1,11 @@
+version: "3.8"
+
 services:
- app:
+ main:
   build: .
-  container_name: todolist-app
+  container_name: todolist-depi-project
   volumes:
-    - ./:app
+    - ./:main
   ports:
     - "3000:3000" 
     
