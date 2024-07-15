@@ -100,7 +100,7 @@
 
     ```
     docker build -t todolist-depi-project .
-    docker run -it -p5000:5000 samaenany/todolist-depi-project
+    docker run -it -p5000:5000 samaenany/todolist-depi-project --password-stdin ## it is meaning when login docker it will expect pass from stdin, it's completely automated
     docker logs 
     docker ps  ## to check container is running 
     ```
@@ -119,6 +119,15 @@
     
     ** docker images | grep <repo name>  ## to check contsainer images
 
+ ## DOCKER HUB  
+    
+    docker build -t todolist-depi-project .
+
+    echo $PASSWORD | docker login -u samaenany/todolist-depi-project
+    
+    docker push <username/repo name> --all-tags
+    
+
 ### stop and remove containers
 
     docker stop 
@@ -133,10 +142,30 @@
 
     <https://dev.to/manojpatra1991/docker-cheat-sheet-docker-networks-49k4>
 
-# DEPLOYMENT AND RELEASE
+# DEPLOYMENT AND RELEASE (CI / CD )
 
 ## GitHub Actions
     GitHub Actions automates your software development workflows directly in your code repository.
     ### A *.github/workflows/pytest.yml* file triggers tests and Docker image building on push to main branch
 
+        
+        git status
+        git add -A
+        git commit -m "Add GitHub Action to run tests and Docker file"
+        docker push
+        
+
 ## Ansible
+![alt text](image-2.png)
+
+    Ansible is a radically simple IT automation system. It handles configuration-management, application deployment, cloud provisioning, ad-hoc task-execution, and multinode orchestration - including trivializing things like zero-downtime rolling updates with load balancers.
+    it is agentless server so you don't need  install ansible only on your machine.
+    - write a playbook (written in YAML) defines one or more plays that will be exececuted on one or more remote machines (selected from inventory) through an SSH connection (no agent required)
+    - A task executes a (https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html) (built-in)or against remote machines (default execution strategy is sequential).
+    - Ansible Collects return codes from executed tasks.
+    
+  ### To check Ansible run
+  - ansible -m ping
+  - ansible -m ping localhost
+  - 
+  - 
