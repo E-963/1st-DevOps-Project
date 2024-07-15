@@ -104,7 +104,7 @@
     docker logs 
     docker ps  ## to check container is running 
     ```
-    docker run -itd name test p3000:3000 docker run -it -p5000:5000 samaenany/todolist-depi-project  ## to name container and run in background
+    docker run -itd name test p3000:3000 docker run -it -p8000:8000 samaenany/todolist-depi-project  ## to name container and run in background
 
     // to see logs use it 
     docker logs -f
