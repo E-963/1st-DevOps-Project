@@ -1,45 +1,53 @@
-# Intiallization
+![alt text](image-1.png)
 
-> Step 1: Clone the Repository: (<https://github.com/E-963/ToDoList-DEPI-Project/tree/main>)
-> Step2: Bash Command for Creat a Virtual Environment
+# FIRST DEVOPS PROJECT
 
-1. python -m venv venv
-2. pip install virtualenv
-3. source venv/bin/activate
-4. sudo install pip
-5. pip install flask
-6. pip install gunicorn
-7. pip install pytest
+  ## Development
 
-## HTML. INDEX
+  ### Intiallization Python App 
 
- Create Templates file
+  > Step 1: Clone the Repository: (<https://github.com/E-963/ToDoList-DEPI-Project/tree/main>)
+  > Step2: Bash Command for Creat a Virtual Environment
 
-## Install requirements
+    1. python -m venv venv
+    2. pip install virtualenv
+    3. source venv/bin/activate
+    4. sudo install pip
+    5. pip install flask
+    6. pip install gunicorn
+    7. pip install pytest
 
- pip install -r requirements.txt
+  ## HTML. INDEX
 
-## Run App
+  Create Templates file
 
-python3  main.py
+  ## Install requirements
 
-## Production
+  pip install -r requirements.txt
 
-gunicorn wsgi
+  ## Run App
 
-## **Testing**
+  python3  main.py
 
-pytest
+  ## Production
 
-## GITHUB commands
+  gunicorn wsgi
 
-## - Run
+  # **Testing**
 
-  git config --global user.email "<you@example.com>"
-  git config --global user.name "Your Name"
-  to set your account's default identity.
+  pytest
 
-## - for add updates to the repository
+  # **Version Control**
+
+  ## GITHUB Commands
+
+  ### - Run
+
+    git config --global user.email "<you@example.com>"
+    git config --global user.name "Your Name"
+    to set your account's default identity.
+
+### - for add updates to the repository
 
     git Add .
 
@@ -51,40 +59,84 @@ pytest
     
     git status   #for check the last status on repo.
 
-*** docker_ec2_watchtower_demo
+# Building and Packaging 
 
-    Create an EC2 Instance (t3.medium, ubuntu image, firewalll allows http from anywhere)
+## CONTAINERIZATION TECHNOLOGY
 
-    Login to the instance and install docker
+### Dockerization
 
-    sudo apt update && sudo apt install docker.io
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
-    newgrp docker
-    # Logout and relogin to the machine
-    docker run hello-world # test docker installation
-    Run an application
+  Docker launches the containers in seconds, and the heart of running containerized applications lies in the powerful command known as ‘docker run‘. Docker is the Container Platform tool. It helps in packaging an application with all its dependencies into a single entity, and it supports running the applications as containerized images on any platform that supports Docker. It acts as a gateway for deploying and managing the Docker containers.
 
-    docker run -itd --name app_container -p80:8080 sh3b0/app_python
-    Check the status of the app on http://<ec2_public_dns_name>
+### Docker Installation
 
-    Common Issue:
+  #### Install docker, buildx, and docker-compose (alert: may not install latest versions)
 
-    AppArmor may prevent watchtower from sending a SIGTERM signal to the containers. Either make a configuration for apparmor (at /etc/apparmor.d/docker) that allows such capability, or uninstall apparmor if you don't need it.
+  **sudo apt install docker.io docker-compose docker-buildx
+  **
 
-    sudo apt-get purge --auto-remove apparmor
-    Run a watchtower that watches the image every 30 seconds. If the image is private, additional volume -v $HOME/.docker/config.json:/config.json can be used to allow watchtower to login and monitor the image.
+  #### Post installation steps: to run docker without sudo (you may need to restart/relogin for changes to take effect)
 
-    docker run -d \
-    --name watchtower \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    containrrr/watchtower app_container --debug --interval 30
-    Check watchtower logs
+  **sudo groupadd docker
+  sudo usermod -aG docker $USER
+  newgrp docker**
 
-    docker logs -f watchtower
-    Rebuild and publish the app
+#### Checking Docker Service Status
 
-    docker build -t sh3b0/app_python .
-    docker login
-    docker push sh3b0/app_python --all-tags
-    Recheck the status of the app
+  Before trying the Docker commands, ensure that the Docker software is set and the service is active. Check the status of the docker service as shown in the below the figure:
+
+  ### Checking status of Docker
+
+  ![alt text](image.png)
+
+# Test installation
+
+    **docker run hello-world**
+
+    #### If the status of the Docker service isn’t in active mode use it
+
+      **systemctl enable docker --now**
+
+## Docker Container Run
+
+    ```
+    docker build -t todolist-depi-project .
+    docker run -it -p5000:5000 samaenany/todolist-depi-project
+    docker logs 
+    docker ps  ## to check container is running 
+    ```
+    docker run -itd name test p3000:3000 docker run -it -p5000:5000 samaenany/todolist-depi-project  ## to name container and run in background
+
+    // to see logs use it 
+    docker logs -f
+
+    // open shell in workdir use command:
+
+    ** docker exec -it test sh **
+
+    ## can check whoami from shell and change from root to USER by add this command in docker file :
+    
+    ** RUN addgroup -S app && adduse
+    
+    ** docker images | grep <repo name>  ## to check contsainer images
+
+### stop and remove containers
+
+    docker stop 
+    
+    docker rm <container ID> -f  ## STOP AND REMOVE RUNNING CONTAINER
+
+    docker container prune    ## to remove all stop containers 
+
+## DOCKER NETWORKING
+
+  ### this link is very useful
+
+    <https://dev.to/manojpatra1991/docker-cheat-sheet-docker-networks-49k4>
+
+# DEPLOYMENT AND RELEASE
+
+## GitHub Actions
+    GitHub Actions automates your software development workflows directly in your code repository.
+    ### A *.github/workflows/pytest.yml* file triggers tests and Docker image building on push to main branch
+
+## Ansible

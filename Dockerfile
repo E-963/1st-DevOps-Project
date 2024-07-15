@@ -6,6 +6,11 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+RUN addgroup -S app && adduser -S app -G app && chown -R app:app .
+
+USER app
+
+EXPOSE 8000
 
 CMD [ "python" ,"./main.py"]
+

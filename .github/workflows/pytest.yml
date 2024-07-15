@@ -6,6 +6,7 @@ on:
      - '*.py'
      - '.github/workflows/pytest.yml'
      - 'templates/**'
+     - 'static'
      - 'tests/*.py'
 
 jobs:

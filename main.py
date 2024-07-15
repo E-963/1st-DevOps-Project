@@ -1,56 +1,44 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 
-# Data persistence (using a database or file system)
-# (Replace with your preferred persistence mechanism)
-todos = []  # Placeholder for persistent data storage
+# Dummy data for tasks (you can use a database in a real application)
+tasks = [
+    {'id': 1, 'task': 'work on my project'},
+    {'id': 2, 'task': 'read quran'},
+    {'id': 3, 'task': 'go to shopping'}
 
-@app.route('/')
+]
+
+# Helper function to get task by ID
+def get_task(task_id):
+    for task in tasks:
+        if task['id'] == task_id:
+            return task
+    return None
+
+# Route to display index.html and handle task operations
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', todos=todos)
-
-@app.route('/add', methods=['POST'])
-def add():
-    todo = request.form['todo']
-    # Add task to persistent data storage
-    add_todo_to_storage(todo)  # Implement this function for persistence
-    return redirect(url_for('index'))
-
-@app.route('/edit/<int:index>', methods=['GET', 'POST'])
-def edit(index):
-    todo = get_todo_from_storage(index)  # Implement this function for persistence
     if request.method == 'POST':
-        todo['task'] = request.form['todo']
-        update_todo_in_storage(todo, index)  # Implement this function for persistence
-        return redirect(url_for('index'))
-    else:
-        return render_template('edit.html', todo=todo, index=index)
+        if request.form.get('action') == 'add':
+            new_task = request.form.get('task')
+            tasks.append({'id': len(tasks) + 1, 'task': new_task})
+        elif request.form.get('action') == 'edit':
+            task_id = int(request.form.get('task_id'))
+            edited_task = request.form.get('edited_task')
+            task = get_task(task_id)
+            if task:
+                task['task'] = edited_task
+        elif request.form.get('action') == 'delete':
+            task_id = int(request.form.get('task_id'))
+            task = get_task(task_id)
+            if task:
+                tasks.remove(task)
 
-@app.route('/check/<int:index>')
-def check(index):
-    todo = get_todo_from_storage(index)  # Implement this function for persistence
-    todo['done'] = not todo['done']
-    update_todo_in_storage(todo, index)  # Implement this function for persistence
-    return redirect(url_for('index'))
+        return redirect(url_for('index'))  # Redirect to GET index to render updated tasks
 
-@app.route('/delete/<int:index>')
-def delete(index):
-    delete_todo_from_storage(index)  # Implement this function for persistence
-    return redirect(url_for('index'))
-
-# Persistence functions (replace with actual implementation)
-def add_todo_to_storage(todo):
-    todos.append({'task': todo, 'done': False})  # Placeholder for database/file operations
-
-def get_todo_from_storage(index):
-    return todos[index]  # Placeholder for database/file retrieval
-
-def update_todo_in_storage(todo, index):
-    todos[index] = todo  # Placeholder for database/file update
-
-def delete_todo_from_storage(index):
-    del todos[index]  # Placeholder for database/file deletion
+    return render_template('index.html', tasks=tasks)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run("0.0.0.0", port="8000" )
