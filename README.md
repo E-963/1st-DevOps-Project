@@ -165,7 +165,54 @@
     - Ansible Collects return codes from executed tasks.
     
   ### To check Ansible run
-  - ansible -m ping
-  - ansible -m ping localhost
+    - ansible -m ping
+    - ansible -m ping localhost
   - 
-  - 
+#### Using Ansible playbook pulls the samaenany/todolist-depi-project:latest Docker image from DockerHub and starts a container named my_app_container based on it, mapping port 8000 on localhost to port 8000 in the container by YAML script
+
+### to run 
+    ansible-playbook site.yml -c ./.ansible.cfg -i ./hosts.ini 
+
+    ansible-playbook site.yml
+####   ansible: This command is used to execute ad-hoc tasks on remote hosts.
+      ansible all -m ping
+#### Using -vvv provides enhanced troubleshooting insights into Ansible's interaction with hosts, clarifying playbook execution and facilitating issue diagnosis and operational understanding.
+      ansible-playbook site.yml -vvv
+
+
+# Iac (Infrastructure as a code)
+ #  Terraform
+ ![alt text](image-3.png)
+   ### Terraform is an infrastructure-as-code tool developed by HashiCorp, designed to automate the provisioning and management of cloud infrastructure resources. It allows users to define infrastructure in a declarative configuration language and then execute that configuration to create, modify, and manage infrastructure resources across various providers.
+
+  ### Key Concepts in Terraform
+    Declarative Configuration: Infrastructure is defined in Terraform using HCL (HashiCorp Configuration Language) or JSON, where you specify the desired state of your infrastructure rather than writing procedural code.
+
+    Providers: Terraform supports multiple cloud and infrastructure providers such as AWS, Azure, Google Cloud Platform, and more. Each provider has its own set of resources that can be managed using Terraform.
+
+    Resources: These are the core building blocks in Terraform configurations. Resources represent infrastructure components like virtual machines, networks, databases, etc., that Terraform will manage.
+
+    State Management: Terraform keeps track of the state of your infrastructure in a state file (terraform.tfstate), which stores mappings between your resources in configuration and real resources provisioned.
+
+  ## Main Terraform Commands
+
+   ### Initializes a Terraform working directory 
+
+     terraform init
+  
+  ### Applying and destroying
+        terraform validate
+
+        terraform fmt
+        
+        terraform plan
+
+        terraform apply
+
+        terraform refresh
+        
+        terraform state
+
+        terraform destroy
+
+    
