@@ -1,0 +1,19 @@
+---
+- name: Run application container
+  hosts: all  
+  become: true
+  
+  tasks:
+    - name: Pull application image
+      docker_image:
+        name: 
+        state: present  
+        source: pull  
+
+    - name: Start application container
+      docker_container:
+        name: my_container_1  
+        image: hadeer16/test_calc:latest  
+        state: started
+        ports:
+          - "5000:5000"  
