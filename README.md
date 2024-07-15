@@ -194,6 +194,33 @@
 
     State Management: Terraform keeps track of the state of your infrastructure in a state file (terraform.tfstate), which stores mappings between your resources in configuration and real resources provisioned.
 
+ ## creating AWS instances using Terraform and allow HTTP and SSH traffic, so need to create a Terraform configuration file (typically with a .tf extension) that specifies the AWS provider, defines the instances, and sets up security groups for allowing the necessary traffic. Below is an example configuration for creating Ubuntu 24.04 as example
+      Specify the AWS provider credentials
+      provider "aws" {
+        region = "us-east-1"  # Change to your desired AWS region
+        }
+
+      # Define variables
+      variable "instance_type" {
+        default = "t2.micro"
+        }
+
+      variable "ami" {
+        default = "ami-0c55b159cbfafe1f0"  # Ubuntu 20.04 LTS AMI ID in us-east-1
+        }  
+
+      # Create AWS instance
+      resource "aws_instance" "example_instance" {
+        ami           = var.ami
+        instance_type = var.instance_type
+        key_name      = "your_key_pair_name"  # Replace with your key pair name for SSH access
+
+        tags = {
+          Name = "ExampleInstance"
+         }
+       }
+
+
   ## Main Terraform Commands
 
    ### Initializes a Terraform working directory 
