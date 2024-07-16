@@ -219,8 +219,10 @@
           Name = "ExampleInstance"
          }
        }
-![AWS EC2-TF](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
-
+  ![photo 1](https://github.com/user-attachments/assets/359984aa-133f-4b64-82ea-3c4be6cfeb8c)
+    
+  ![AWS EC2-TF](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
+    
 
   ## Main Terraform Commands
 
