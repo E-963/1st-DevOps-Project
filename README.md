@@ -69,10 +69,10 @@
 
 ### Docker Installation
 
-  #### Install docker, buildx, and docker-compose (alert: may not install latest versions)
+#### Install docker, buildx, and docker-compose (alert: may not install latest versions)
 
-  **sudo apt install docker.io docker-compose docker-buildx
-  **
+  sudo apt install docker.io docker-compose docker-buildx
+  
 
   #### Post installation steps: to run docker without sudo (you may need to restart/relogin for changes to take effect)
 
