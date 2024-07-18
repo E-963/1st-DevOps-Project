@@ -69,55 +69,54 @@
 
 ### Docker Installation
 
-#### Install docker, buildx, and docker-compose (alert: may not install latest versions)
-
-  sudo apt install docker.io docker-compose docker-buildx
+      Install docker, buildx, and docker-compose (alert: may not install latest versions)
+    
+      sudo apt install docker.io docker-compose docker-buildx
   
 
-  #### Post installation steps: to run docker without sudo (you may need to restart/relogin for changes to take effect)
+  ###### Post installation steps: to run docker without sudo (you may need to restart/relogin for changes to take effect)
 
-  **sudo groupadd docker
-  sudo usermod -aG docker $USER
-  newgrp docker**
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+        newgrp docker
 
-#### Checking Docker Service Status
+###### Checking Docker Service Status
 
-  Before trying the Docker commands, ensure that the Docker software is set and the service is active. Check the status of the docker service as shown in the below the figure:
+     Before trying the Docker commands, ensure that the Docker software is set and the service is active. Check the status of the docker service as shown in the below the figure:
 
-  ### Checking status of Docker
+###### Checking status of Docker
 
-  ![alt text](image.png)
+    ![alt text](image.png)
 
 # Test installation
 
-    **docker run hello-world**
+    docker run hello-world
 
-    #### If the status of the Docker service isn’t in active mode use it
+#### If the status of the Docker service isn’t in active mode use it
 
-      **systemctl enable docker --now**
+        systemctl enable docker --now
 
 ## Docker Container Run
 
-    ```
-    docker build -t todolist-depi-project .
-    docker run -it -p5000:5000 samaenany/todolist-depi-project --password-stdin ## it is meaning when login docker it will expect pass from stdin, it's completely automated
-    docker logs 
-    docker ps  ## to check container is running 
-    ```
+      
+      docker build -t todolist-depi-project .
+      docker run -it -p5000:5000 samaenany/todolist-depi-project --password-stdin ## it is meaning when login docker it will expect pass from stdin, it's completely automated
+      docker logs 
+      docker ps  ## to check container is running 
+      
     docker run -itd name test p3000:3000 docker run -it -p8000:8000 samaenany/todolist-depi-project  ## to name container and run in background
 
-    // to see logs use it 
+   to see logs use it 
     docker logs -f
 
-    // open shell in workdir use command:
+   open shell in workdir use command:
+     docker exec -it test sh
 
-    ** docker exec -it test sh **
-
-    ## can check whoami from shell and change from root to USER by add this command in docker file :
+  #### can check whoami from shell and change from root to USER by add this command in docker file :
     
-    ** RUN addgroup -S app && adduse
+    RUN addgroup -S app && adduse
     
-    ** docker images | grep <repo name>  ## to check contsainer images
+    docker images | grep <repo name>  ## to check contsainer images
 
  ## DOCKER HUB  
     
@@ -145,8 +144,8 @@
 # DEPLOYMENT AND RELEASE (CI / CD )
 
 ## GitHub Actions
-    GitHub Actions automates your software development workflows directly in your code repository.
-    ### A *.github/workflows/pytest.yml* file triggers tests and Docker image building on push to main branch
+  GitHub Actions automates your software development workflows directly in your code repository.
+### A *.github/workflows/pytest.yml* file triggers tests and Docker image building on push to main branch
 
         
         git status
@@ -195,7 +194,7 @@
     State Management: Terraform keeps track of the state of your infrastructure in a state file (terraform.tfstate), which stores mappings between your resources in configuration and real resources provisioned.
 
  ## creating AWS instances using Terraform and allow HTTP and SSH traffic, so need to create a Terraform configuration file (typically with a .tf extension) that specifies the AWS provider, defines the instances, and sets up security groups for allowing the necessary traffic. Below is an example configuration for creating Ubuntu 24.04 as example
-      Specify the AWS provider credentials
+### Specify the AWS provider credentials
       provider "aws" {
         region = "us-east-1"  # Change to your desired AWS region
         }
@@ -226,9 +225,9 @@
 
   ## Main Terraform Commands
 
-   ### Initializes a Terraform working directory 
+  ### Initializes a Terraform working directory 
 
-     terraform init
+       terraform init
   
   ### Applying and destroying
         terraform validate
