@@ -82,11 +82,8 @@
 
 ###### Checking Docker Service Status
 
-     Before trying the Docker commands, ensure that the Docker software is set and the service is active. Check the status of the docker service as shown in the below the figure:
-
-###### Checking status of Docker
-
-    ![alt text](image.png)
+#### Before trying the Docker commands, ensure that the Docker software is set and the service is active. Check the status of the docker service as shown in the below the figure:
+![alt text](image.png)
 
 # Test installation
 
@@ -94,7 +91,7 @@
 
 #### If the status of the Docker service isn’t in active mode use it
 
-        systemctl enable docker --now
+  systemctl enable docker --now
 
 ## Docker Container Run
 
@@ -102,19 +99,19 @@
       docker build -t todolist-depi-project .
       docker run -it -p5000:5000 samaenany/todolist-depi-project --password-stdin ## it is meaning when login docker it will expect pass from stdin, it's completely automated
       docker logs 
-      docker ps  ## to check container is running 
+      docker ps       ## to check container is running 
       
     docker run -itd name test p3000:3000 docker run -it -p8000:8000 samaenany/todolist-depi-project  ## to name container and run in background
 
    to see logs use it 
     docker logs -f
 
-   open shell in workdir use command:
+  ###### open shell in workdir use command:
      docker exec -it test sh
 
-  #### can check whoami from shell and change from root to USER by add this command in docker file :
+###### can check whoami from shell and change from root to USER by add this command in docker file :
     
-    RUN addgroup -S app && adduse
+    RUN addgroup -S app && adduser
     
     docker images | grep <repo name>  ## to check contsainer images
 
