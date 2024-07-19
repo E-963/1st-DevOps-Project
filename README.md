@@ -91,7 +91,7 @@
 
 #### If the status of the Docker service isn’t in active mode use it
 
-  systemctl enable docker --now
+>systemctl enable docker --now
 
 ## Docker Container Run
 
@@ -126,18 +126,15 @@
 
 ### stop and remove containers
 
-    docker stop 
-    
-    docker rm <container ID> -f  ## STOP AND REMOVE RUNNING CONTAINER
+     docker stop    
+     docker rm <container ID> -f          ## STOP AND REMOVE RUNNING CONTAINER
+     docker container prune    ## to remove all stop container
 
-    docker container prune    ## to remove all stop containers 
 
 ## DOCKER NETWORKING
 
   ### this link is very useful
-
-    <https://dev.to/manojpatra1991/docker-cheat-sheet-docker-networks-49k4>
-
+(https://dev.to/manojpatra1991/docker-cheat-sheet-docker-networks-49k4)
 # DEPLOYMENT AND RELEASE (CI / CD )
 
 ## GitHub Actions
@@ -173,7 +170,8 @@
 ####   ansible: This command is used to execute ad-hoc tasks on remote hosts.
       ansible all -m ping
 #### Using -vvv provides enhanced troubleshooting insights into Ansible's interaction with hosts, clarifying playbook execution and facilitating issue diagnosis and operational understanding.
-      ansible-playbook site.yml -vvv
+      
+     ansible-playbook site.yml -vvv`
 
 
 # Iac (Infrastructure as a code)
@@ -182,7 +180,8 @@
    ### Terraform is an infrastructure-as-code tool developed by HashiCorp, designed to automate the provisioning and management of cloud infrastructure resources. It allows users to define infrastructure in a declarative configuration language and then execute that configuration to create, modify, and manage infrastructure resources across various providers.
 
   ### Key Concepts in Terraform
-    Declarative Configuration: Infrastructure is defined in Terraform using HCL (HashiCorp Configuration Language) or JSON, where you specify the desired state of your infrastructure rather than writing procedural code.
+    Declarative Configuration: Infrastructure is defined in Terraform using HCL (HashiCorp Configuration Language) or JSON, where you specify the desired state of your infrastructure rather than writing procedural 
+   code.
 
     Providers: Terraform supports multiple cloud and infrastructure providers such as AWS, Azure, Google Cloud Platform, and more. Each provider has its own set of resources that can be managed using Terraform.
 
@@ -192,7 +191,7 @@
 
  ## creating AWS instances using Terraform and allow HTTP and SSH traffic, so need to create a Terraform configuration file (typically with a .tf extension) that specifies the AWS provider, defines the instances, and sets up security groups for allowing the necessary traffic. Below is an example configuration for creating Ubuntu 24.04 as example
 ### Specify the AWS provider credentials
-      provider "aws" {
+       provider "aws" {
         region = "us-east-1"  # Change to your desired AWS region
         }
 
@@ -206,7 +205,7 @@
         }  
 
       # Create AWS instance
-      resource "aws_instance" "example_instance" {
+     resource "aws_instance" "example_instance" {
         ami           = var.ami
         instance_type = var.instance_type
         key_name      = "your_key_pair_name"  # Replace with your key pair name for SSH access
@@ -214,7 +213,7 @@
         tags = {
           Name = "ExampleInstance"
          }
-       }
+       }  
   ![photo 1](https://github.com/user-attachments/assets/359984aa-133f-4b64-82ea-3c4be6cfeb8c)
     
   ![AWS EC2-TF](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
@@ -227,19 +226,19 @@
        terraform init
   
   ### Applying and destroying
-    **terraform validate
-
-      terraform fmt
-        
-     terraform plan
-
-     terraform apply
-
-     terraform refresh
-        
-     terraform state
-
-     terraform destroy**
+      terraform validate
+  
+       terraform fmt
+            
+       terraform plan
+    
+       terraform apply
+    
+       terraform refresh
+            
+       terraform state
+    
+       terraform destroy
 
 # Operation and Monitoring
   ### Comming Soon    
