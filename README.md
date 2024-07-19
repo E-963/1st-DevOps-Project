@@ -9,33 +9,33 @@
   > Step 1: Clone the Repository: (<https://github.com/E-963/ToDoList-DEPI-Project/tree/main>)
   > Step2: Bash Command for Creat a Virtual Environment
 
-    1. python -m venv venv
-    2. pip install virtualenv
-    3. source venv/bin/activate
-    4. sudo install pip
-    5. pip install flask
-    6. pip install gunicorn
-    7. pip install pytest
+      1. python -m venv venv
+      2. pip install virtualenv
+      3. source venv/bin/activate
+      4. sudo install pip
+      5. pip install flask
+      6. pip install gunicorn
+      7. pip install pytest
 
   ## HTML. INDEX
 
-  Create Templates file
+     Create Templates file
 
   ## Install requirements
 
-  pip install -r requirements.txt
+    pip install -r requirements.txt
 
   ## Run App
 
-  python3  main.py
+    python3  main.py
 
   ## Production
 
-  gunicorn wsgi
+    gunicorn wsgi
 
   # **Testing**
 
-  pytest
+    pytest
 
   # **Version Control**
 
@@ -103,8 +103,8 @@
       
     docker run -itd name test p3000:3000 docker run -it -p8000:8000 samaenany/todolist-depi-project  ## to name container and run in background
 
-   to see logs use it 
-    docker logs -f
+  ##### to see logs use it 
+      docker logs -f
 
   ###### open shell in workdir use command:
      docker exec -it test sh
@@ -227,19 +227,19 @@
        terraform init
   
   ### Applying and destroying
-        terraform validate
+    **terraform validate
 
-        terraform fmt
+      terraform fmt
         
-        terraform plan
+     terraform plan
 
-        terraform apply
+     terraform apply
 
-        terraform refresh
+     terraform refresh
         
-        terraform state
+     terraform state
 
-        terraform destroy
+     terraform destroy**
 
 # Operation and Monitoring
   ### Comming Soon    
