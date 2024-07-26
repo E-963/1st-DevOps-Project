@@ -10,7 +10,7 @@ RUN addgroup -S app && adduser -S app -G app && chown -R app:app .
 
 USER app
 
-EXPOSE 5000
+EXPOSE 3000
 
 CMD [ "python" ,"./main.py"]
 
