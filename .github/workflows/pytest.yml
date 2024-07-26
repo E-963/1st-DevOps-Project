@@ -9,7 +9,7 @@ on:
     paths: 
      - "app.py/**"
      - "Docker/**"
-     -  ".github/workflows/**"
+     - ".github/workflows/**"
      - "templates/**"
      - 'static/**'
      - 'tests/*.py'
