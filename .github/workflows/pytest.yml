@@ -1,19 +1,14 @@
-name: pytest
+name: PyTest
 
 on: 
-   push:
-
-    branches:
-      - main
-
-    paths: 
-     - "app.py/**"
-     - "Docker/**"
-     - ".github/workflows/**"
-     - "templates/**"
-     - 'static/**'
-     - 'tests/*.py'
-
+    push:
+        branches:
+            - main
+        paths:
+            - '**/*.py' 
+            - 'templates/**'
+            - 'requirements.txt'
+            - '.github/workflows/actionspy.yml'
 jobs:
   test:
     runs-on: ubuntu-latest
