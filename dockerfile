@@ -3,7 +3,7 @@ FROM python:3-alpine
 WORKDIR /app
 
 COPY . .
-
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN addgroup -S app && adduser -S app -G app && chown -R app:app .
