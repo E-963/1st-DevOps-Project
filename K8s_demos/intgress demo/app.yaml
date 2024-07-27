@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+  labels:
+    name: app
+spec:
+  containers:
+  - name: app
+    image: samaenany/todolist-depi-project:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-svc
+spec:
+  type: NodePort
+  selector:
+    name: app
+  ports:
+  - name: svc-port
+    port: 3000
+    targetPort: 3000

@@ -12,5 +12,4 @@ USER app
 
 EXPOSE 3000
 
-CMD [ "python" ,"./main.py"]
-
+CMD [ "gunicorn" ,"--bind", "0.0.0.0:3000", "wsgi"]
