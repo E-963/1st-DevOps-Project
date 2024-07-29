@@ -1,4 +1,3 @@
-![alt text](<../../../../Downloads/badge (1).svg>)
 
 ![alt text](image-1.png)
 
