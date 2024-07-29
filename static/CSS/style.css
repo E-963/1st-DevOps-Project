@@ -37,14 +37,14 @@ body {
     font-weight: 600;
   }
   &.red {
-    background-color: #b68f93;
-    color: #721c24;
-    border: 1px solid #7258b6;
+    background-color: #044a12;
+    color: #ce989d;
+    border: 1px solid #9888bf;
   }
   &.green {
-    background-color: #43547e;
-    color: #155724;
-    border: 1px solid #4a7fb0;
+    background-color: #09321c;
+    color: #c4b9b9;
+    border: 1px solid #789765;
   }
 }
 .btn {
@@ -106,10 +106,10 @@ body {
         .item-index {
           border: 1px solid var(--green);
           border-radius: 25%;
-          padding: 0.5rem;
+          padding: 0.1rem;
           &.completed {
-            color: #a8aaad;
-            border: 1px solid #a8aaad;
+            color: #718bb2;
+            border: 1px solid #728bb1;
           }
         }
         .item-name {
@@ -128,7 +128,7 @@ body {
           color: var(--green);
         }
         .fa-times-circle {
-          color: red;
+          color: rgb(119, 19, 19);
         }
       }
     }
