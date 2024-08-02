@@ -1,0 +1,19 @@
+---
+- name: Run application container
+  hosts: app
+  become: true
+  
+  tasks:
+    - name: Pull application image
+      docker_image:
+        name: samaenany/todolist-depi-project:latest
+        state: present  
+        source: pull  
+
+    - name: Start application container
+      docker_container:
+        name: my_app_container  
+        image: samaenany/todolist-depi-project:latest 
+        state: started
+        ports:
+          - "3000:3000"  

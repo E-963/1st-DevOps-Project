@@ -14,7 +14,7 @@
       1. python -m venv venv
       2. pip install virtualenv
       3. source venv/bin/activate   
-      4. sudo install pip
+      4. sudo apt install pip
       5. pip install flask
       6. pip install gunicorn
       7. pip install pytest
@@ -240,7 +240,7 @@
        }  
   ![photo 1](https://github.com/user-attachments/assets/359984aa-133f-4b64-82ea-3c4be6cfeb8c)
 
-  ![AWS EC2-TF](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
+  ![alt text](<Screenshot from 2024-08-01 18-34-11.png>)
 
 ## Main Terraform Commands
 
