@@ -1,12 +1,12 @@
-version: "3.8"
+version: "3.12"
 
 services:
  main:
   build: .
   container_name: todolist-depi-project
   volumes:
-    - ./:main
+    - .:/main
   ports:
     - "3000:3000" 
     
-  command: [ "gunicorn", "0.0.0.0:3000", "wsgi" ]
+  command: [ "gunicorn", "0.0.0.0:3000", "wsgi:app" ]
