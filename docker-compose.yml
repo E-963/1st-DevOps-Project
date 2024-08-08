@@ -7,6 +7,6 @@ services:
   volumes:
     - ./:main
   ports:
-    - "8000:8000" 
+    - "3000:3000" 
     
-  command: [ "gunicorn", "--bind", "0.0.0.0:8000", "wsgi" ]
+  command: [ "gunicorn", "0.0.0.0:3000", "wsgi" ]
