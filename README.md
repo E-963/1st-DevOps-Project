@@ -103,10 +103,10 @@
 
 ## Docker Container Run
 
-    - docker build -t todolist-depi-project .
+    - docker build -t test .
 
-    -  docker run -it -p3000:3000 samaenany/todolist-depi-project  
-
+    -  docker run -it -p3000:3000 samaenany/1st-devops-project
+    
     - docker logs
       
     - docker ps       ## to check container is running 
@@ -242,6 +242,12 @@
 
   ![AWS EC2-TF](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
 
+
+### Provision EC2 instance with the necessary configs to the run one instance of the web application.
+
+    nano ~/.aws/config # Update with your AWS connection config
+
+
 ## Main Terraform Commands
 
 ### Initializes a Terraform working directory
@@ -262,8 +268,55 @@
             
        terraform state
     
-       terraform destroy       
+       terraform destroy 
+
+  # Ansible
+
+  ### Playbook to install Docker and run the app container on the provisioned instance.
+    cd ansible
+    ansible-galaxy collection install community.docker
+    ansible-playbook main.yml # make sure to update hosts.ini with the outputs from terraform    
+
 
 # Operation and Monitoring
 
-### Comming Soon
+## k8s_demos
+    Install kubectl and minikube
+    Run minikube start to start a local k8s cluster and configure kubectl to interact with it.
+
+
+## Pod, Namespace, and LimitRange
+ ## Creates a Pod for the Python application in a namespace and apply resource limits
+
+    kubectl apply -f namespace.yaml -f pod.yaml -f limitrange.yaml
+    kubectl get all -n webapps
+    kubectl describe limits/limitrange -n webapps
+## Deployment
+* Using CLI:
+
+    # Create deployment for the application
+    kubectl create deployment app-deployment --image=sh3b0/app_python
+
+    # Create an external service to make the app accessible from outside.
+    kubectl expose deployment app-deployment --type=LoadBalancer --port=8080
+
+    # Show created objects
+    kubectl get all
+
+    # Create deployment for the application
+    kubectl create deployment app-deployment --image=sh3b0/app_python
+
+# Create an external service to make the app accessible from outside.
+kubectl expose deployment app-deployment --type=LoadBalancer --port=8080
+
+# Show created objects
+    kubectl get all
+ ### Using manifests:
+
+    kubectl apply -f deployment.yaml -f service.yaml
+    kubectl get all
+
+## To remove created objects
+
+    kubectl delete service/app-deployment
+    kubectl delete deployment.apps/app-service

@@ -1,3 +1,4 @@
+---
 name: PyTest
 
 on: 
@@ -30,6 +31,7 @@ jobs:
         run: |
           pytest
 
+          ---    
   build-and-push:
     runs-on: ubuntu-latest
     steps:
