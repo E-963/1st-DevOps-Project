@@ -1,12 +1,17 @@
-version: "3.12"
-
 services:
- main:
-  build: .
-  container_name: todolist-depi-project
-  volumes:
-    - .:/main
-  ports:
-    - "3000:3000" 
-    
-  command: [ "gunicorn", "0.0.0.0:3000", "wsgi:app" ]
+  app:
+    build: .
+    container_name: competent_brattain
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+
+    command: [ "gunicorn", "--bind", "0.0.0.0:3000", "wsgi" ]
+ 
+        
+
+
+
