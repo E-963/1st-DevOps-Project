@@ -105,14 +105,14 @@
 
     - docker build -t test .
 
-    -  docker run -it -p3000:3000 samaenany/1st-devops-project
-    
+    -  docker run -it -p3000:3000 samaenany/todolist-depi-project
+
     - docker logs
       
     - docker ps       ## to check container is running 
   
    ### to name container and run in background 
-    docker run -itd name test p3000:3000 docker run -it -p8000:8000 samaenany/todolist-depi-project   
+docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ### to see logs use it
 
@@ -130,7 +130,7 @@
 
 ## DOCKER HUB  
 
-    docker build -t todolist-depi-project .
+    docker build -t test .
 
     echo $PASSWORD | docker login -u samaenany/todolist-depi-project
     
@@ -275,7 +275,7 @@
   ### Playbook to install Docker and run the app container on the provisioned instance.
     cd ansible
     ansible-galaxy collection install community.docker
-    ansible-playbook main.yml # make sure to update hosts.ini with the outputs from terraform    
+    ansible-playbook main.yml    # updated hosts.ini with the outputs from terraform    
 
 
 # Operation and Monitoring
