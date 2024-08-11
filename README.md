@@ -240,7 +240,7 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
        }  
   ![photo 1](https://github.com/user-attachments/assets/359984aa-133f-4b64-82ea-3c4be6cfeb8c)
 
-  ![![alt text](awssssss.png)](https://github.com/user-attachments/assets/a883e56d-68f0-4ceb-844e-a39cc187e77b)
+  ![![alt text](awssssss.png)]
 
 ### Provision EC2 instance with the necessary configs to the run one instance of the web application.
 
