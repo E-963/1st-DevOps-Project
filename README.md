@@ -1,5 +1,3 @@
-![alt text](actions-workflow-status-badge.webp)(https://github.com/github/1st-DevOps-Project/actions/workflows/pytest.yml/badge.svg)
-
 ![alt text](image-1.png)
 
 # FIRST DEVOPS PROJECT
