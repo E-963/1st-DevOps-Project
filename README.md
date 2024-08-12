@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-![alt text](actions-workflow-status-badge.webp)
-
->>>>>>> 91a835175f668670ca1273bdfab7d8a5d4a5b81f
 ![alt text](image-1.png)
 
 # FIRST DEVOPS PROJECT
