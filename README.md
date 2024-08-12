@@ -1,3 +1,4 @@
+![alt text](actions-workflow-status-badge.webp)(https://github.com/github/1st-DevOps-Project/actions/workflows/pytest.yml/badge.svg)
 
 ![alt text](image-1.png)
 
@@ -281,8 +282,6 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ## k8s_demos
     Install kubectl and minikube
-    Run minikube start to start a local k8s cluster and configure kubectl to interact with it.
-
 
 ## Pod, Namespace, and LimitRange
  ## Creates a Pod for the Python application in a namespace and apply resource limits
