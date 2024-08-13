@@ -1,5 +1,4 @@
-![CI/CD Pipeline](https://github.com/E-963/1st-DevOps-Project/actions/workflows/action.yml/badge.svg)
-
+<https://github.com/E-963/1st-DevOps-Project/actions/workflows/pytest.yml/badge.svg>
 
 ![alt text](image-1.png)
 
