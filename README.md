@@ -1,3 +1,6 @@
+![CI/CD Pipeline](https://github.com/E-963/1st-DevOps-Project/actions/workflows/action.yml/badge.svg)
+
+
 ![alt text](image-1.png)
 
 # FIRST DEVOPS PROJECT
@@ -6,7 +9,7 @@
 
 ### Intiallization Python App
 
-  > Step 1: Clone the Repository: (https://github.com/E-963/1st-DevOps-Project)
+  > Step 1: Clone the Repository: (<https://github.com/E-963/1st-DevOps-Project>)
   
   > Step2: Bash Command for Creat a Virtual Environment
 
@@ -110,7 +113,8 @@
       
     - docker ps       ## to check container is running 
   
-   ### to name container and run in background 
+### to name container and run in background
+
 docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ### to see logs use it
@@ -241,10 +245,9 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
   ![![alt text](awssssss.png)]
 
-### Provision EC2 instance with the necessary configs to the run one instance of the web application.
+### Provision EC2 instance with the necessary configs to the run one instance of the web application
 
-    nano ~/.aws/config # Update with your AWS connection config
-
+    nano ~/.aws/config        # Update with your AWS connection config
 
 ## Main Terraform Commands
 
@@ -268,13 +271,12 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
     
        terraform destroy 
 
-  # Ansible
+# Ansible
 
-  ### Playbook to install Docker and run the app container on the provisioned instance.
+### Playbook to install Docker and run the app container on the provisioned instance
+
     cd ansible
     ansible-galaxy collection install community.docker
     ansible-playbook main.yml    # updated hosts.ini with the outputs from terraform    
 
-
 # Operation and Monitoring
-
