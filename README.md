@@ -288,7 +288,7 @@ Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https:
 
 ### Start Minikube: Start a Minikube cluster by running
 
-   minikube start
+    minikube start
 
  ## Pod and Namespace
 * ## Creates a Pod for the Python application in a namespace 
