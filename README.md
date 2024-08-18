@@ -315,7 +315,7 @@ Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https:
     kubectl apply -f role.yaml
 
 ### when deploying on cloud, an external IP for the service will be available. For testing with minikube, run the following command to get a URL for accessing the service
-    minikube -n my-app-namespace service my-app-service --url
+    minikube -n my-app-namespace service app-service --url
 
 * # Create a Helm Chart
 
@@ -334,7 +334,11 @@ Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https:
 
 ## Deploy the Helm chart
 
-    helm install my-app-release ./my-helm-chart --values my_values.yaml    
+    helm upgrade --install app-deployment app-deployment/ --values my_values.yaml
+​  
+    helm list            # To see installed charts  
+    minikube dashboard   # Opens a web UI for debugging
+    minikube service app --url # Get service address
 
 # Monitoring
 
