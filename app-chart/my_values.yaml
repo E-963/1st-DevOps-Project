@@ -1,0 +1,10 @@
+# Example usecase for the created chart.
+# Here we can override the default values in app-deployment/values.yaml
+
+image: samaenany/todolist-depi-project:latest
+
+replicaCount: 2
+
+stateful:
+  enabled: true
+  storageRequest: 5Mi

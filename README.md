@@ -1,6 +1,5 @@
 ![example workflow](<https://github.com/E-963/1st-DevOps-Project/actions/workflows/pytest.yml/badge.svg>) ![example workflow](<https://github.com/E-963/1st-DevOps-Project/actions/workflows/docker-image.yml/badge.svg>)
 
-
 ![alt text](image-1.png)
 
 # FIRST DEVOPS PROJECT
@@ -280,3 +279,87 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
     ansible-playbook main.yml    # updated hosts.ini with the outputs from terraform    
 
 # Operation and Monitoring
+
+# Kubernates
+
+### Install Minikube: Ensure Minikube is installed on your local machine. You can install it using a package manager like brew on macOS or download it directly from the Minikube GitHub repository
+
+Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
+
+### Start Minikube: Start a Minikube cluster by running
+
+   minikube start
+
+ ## Pod and Namespace
+* ## Creates a Pod for the Python application in a namespace 
+
+    kubectl apply -f namespace.yaml -f pod.yaml
+    kubectl get pods -n my-app-namespace
+    kubectl describe pod my-app -n my-app-namespace
+
+
+### Configure kubectl: Minikube comes with kubectl preconfigured to interact with the Minikube cluster. Verify that kubectl is configured correctly
+
+    kubectl get nodes
+
+    kubectl get all -n my-app-namespace
+
+### Create Kubernetes Manifests
+
+### Apply each of the manifests to your Minikube cluster
+
+    kubectl apply -f namespace.yaml
+    kubectl apply -f deployment.yaml
+    kubectl apply -f service.yaml
+    kubectl apply -f ingress.yaml
+    kubectl apply -f role.yaml
+
+### when deploying on cloud, an external IP for the service will be available. For testing with minikube, run the following command to get a URL for accessing the service
+    minikube -n my-app-namespace service my-app-service --url
+
+* # Create a Helm Chart
+
+    Create a Helm Chart Structure:
+
+
+    Use the helm create command to scaffold a new Helm chart:
+
+         helm create my-helm-chart
+
+* ### This will create a directory structure including a Chart.yaml, values.yaml, and templates/ directory
+
+## Package the Helm chart by running
+
+    helm package my-helm-chart
+
+## Deploy the Helm chart
+
+    helm install my-app-release ./my-helm-chart --values my_values.yaml    
+
+# Monitoring
+
+## Deploy Monitoring and Visualization Stack (Prometheus and Grafana)
+
+* ### Create Prometheus and Grafana Manifests
+
+Use Helm charts to deploy Prometheus and Grafana, or create Kubernetes manifests for them.
+You can add Prometheus and Grafana as dependencies in a Chart.yaml file or use Helm commands to deploy them directly:
+
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    
+    helm repo update
+
+    helm install prometheus prometheus-community/prometheus --namespace my-namespace
+  
+    helm install grafana grafana/grafana --namespace my-namespace
+
+* ### Configure Prometheus to Scrape Application MetricsAccessing dashboard
+
+ ### For testing with minkube, metrics plugin should be added 
+        minikube addons enable metrics-server
+
+ ### Use 'kubectl port-forward" to access Grafana’s UI:
+       kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring
+
+ ### Login to Grafana (default credentials: admin/admin), add Prometheus as a data source, and create dashboards to visualize the metrics.
+ 

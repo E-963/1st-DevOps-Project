@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  namespace: my-app-namespace
+spec:
+  replicas: 2 # Replace with desired number of replicas
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+        containers:
+        - name: app
+          image: samaenany/todolist-depi-project
+          ports:
+          - containerPort: 3000 # port exposed by the app image
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
