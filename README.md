@@ -1,4 +1,4 @@
-![example workflow](<https://github.com/E-963/1st-DevOps-Project/actions/workflows/docker-image.yml/badge.svg>)
+![example workflow](<https://github.com/E-963/1st-DevOps-Project/actions/workflows/pytest.yml/badge.svg>)  ![example workflow](<https://github.com/E-963/1st-DevOps-Project/actions/workflows/docker-image.yml/badge.svg>) 
 ![alt text](image-1.png)
 
 # FIRST DEVOPS PROJECT
@@ -356,13 +356,13 @@ You can add Prometheus and Grafana as dependencies in a Chart.yaml file or use H
   
     helm install grafana grafana/grafana --namespace my-namespace
 
-* ### Configure Prometheus to Scrape Application MetricsAccessing dashboard
+ * ### Configure Prometheus to Scrape Application MetricsAccessing dashboard
 
- ### For testing with minkube, metrics plugin should be added 
+ * ### For testing with minkube, metrics plugin should be added 
         minikube addons enable metrics-server
 
- ### Use 'kubectl port-forward" to access Grafana’s UI:
+ * ### Use 'kubectl port-forward" to access Grafana’s UI:
        kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring
 
- ### Login to Grafana (default credentials: admin/admin), add Prometheus as a data source, and create dashboards to visualize the metrics.
- 
+ * #### Login to Grafana (default credentials: admin/admin), add Prometheus as a data source, and create dashboards to visualize the metrics.
+ ![alt text](<Screenshot from 2024-08-18 21-27-55.png>)
