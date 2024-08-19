@@ -1,37 +1,23 @@
 ---
 name: PyTest
 
-on: 
-    push:
-        branches:
-            - main
-        paths:
-            - '**/*.py' 
-            - 'templates/**'
-            - 'requirements.txt'
-            - '.github/workflows/actionspy.yml'
+on: [ push ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
           cache: 'pip'
-
       - name: Install dependencies
-        run: | 
-          pip install pytest
-          pip install -r requirements.txt
-
-      - name: Run tests
-        run: |
-          pytest
-
-          ---    
+        run: pip install -r requirements.txt
+      - name: Running tests
+        run: pytest
+        
   build-and-push:
     runs-on: ubuntu-latest
     steps:
