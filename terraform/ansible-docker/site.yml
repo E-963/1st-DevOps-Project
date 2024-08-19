@@ -1,6 +1,6 @@
 ---
 - name: Run application container
-  hosts: app
+  hosts: all
   become: true
   
   tasks:
