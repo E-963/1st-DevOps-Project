@@ -1,0 +1,14 @@
+---
+- name: Automate Docker-Compose Build using Ansible
+  hosts: localhost
+  tasks: 
+    - name: Stop and remove running containers
+      command: docker-compose down
+      ignore_errors: yes
+
+    - name: Remove used docker image
+      command: docker rmi 1st-devops-project_app
+      ignore_errors: yes
+
+    - name: Build existing Dockerfile and run container
+      command: docker-compose up -d
