@@ -1,3 +1,4 @@
+# pylint: disable=redefined-outer-name
 import pytest
 from main import app
 
@@ -10,3 +11,4 @@ def client():
 def test_homepage(client):
     response = client.get('/')
     assert response.status_code == 200
+    

@@ -4,7 +4,7 @@
   tasks: 
     - name: Stop and remove running containers
       command: docker-compose down
-      ignore_errors: yes
+      ignore_errors: yes   # for manual stopping or no docker down
 
     - name: Remove used docker image
       command: docker rmi 1st-devops-project_app
