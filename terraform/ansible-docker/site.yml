@@ -1,6 +1,6 @@
 ---
 - name: Run application container
-  hosts: all
+  hosts: ec2
   become: true
   
   tasks:
@@ -16,4 +16,4 @@
         image: samaenany/todolist-depi-project:latest 
         state: started
         ports:
-          - "3000:3000"  
+          - "3000:3000"

@@ -103,7 +103,7 @@
 
 ## Docker Container Run
 
-    - docker build -t test .
+    - docker build -t todolist .
 
     -  docker run -it -p3000:3000 samaenany/todolist-depi-project
 
@@ -113,11 +113,7 @@
   
 ### to name container and run in background
 
-docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
-
-### to see logs use it
-
-      docker logs -f
+    docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ### open shell in workdir use command
 
@@ -131,7 +127,7 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ## DOCKER HUB  
 
-    docker build -t test .
+    docker build -t todolist .
 
     echo $PASSWORD | docker login -u samaenany/todolist-depi-project
     
@@ -140,14 +136,17 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 ### stop and remove containers
 
      docker stop    
-     docker rm <container ID> -f          ## STOP AND REMOVE RUNNING CONTAINER
-     docker container prune    ## to remove all stop container
+     docker rm <container ID> -f   ## STOP AND REMOVE RUNNING CONTAINER
+     docker container prune        ## to remove all stop container
 
-## DOCKER NETWORKING
+     docker system prune -a       ##  remove unused Docker images,   containers, volumes, and networks to free up space.
 
-### this link is very useful
+### to list all networks currently available in Docker
 
-(<https://dev.to/manojpatra1991/docker-cheat-sheet-docker-networks-49k4>)
+    docker network ls
+
+## Docker Compose 
+    ansible-playbook dcompose.yml
 
 # DEPLOYMENT AND RELEASE (CI / CD )
 
@@ -181,7 +180,6 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
 ### to run
 
-    ansible-playbook site.yml -c ./.ansible.cfg -i ./hosts.ini 
 
     ansible-playbook site.yml
 
@@ -275,7 +273,7 @@ docker run -d --name my_todo_app -p 3000:3000 samaenany/todolist-depi-project
 
     cd ansible
     ansible-galaxy collection install community.docker
-    ansible-playbook main.yml    # updated hosts.ini with the outputs from terraform    
+    ansible-playbook site.yml    # updated hosts.ini with the outputs from terraform    
 
 # Operation and Monitoring
 
@@ -312,6 +310,10 @@ Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https:
     kubectl apply -f service.yaml
     kubectl apply -f ingress.yaml
     kubectl apply -f role.yaml
+### to interact with a specific pod in a Kubernetes cluster.
+    kubectl get pod -n my-app-namespace
+
+    kubectl describe pod  -n my-app-namespace
 
 ### when deploying on cloud, an external IP for the service will be available. For testing with minikube, run the following command to get a URL for accessing the service
     minikube -n my-app-namespace service app-service --url
@@ -333,11 +335,14 @@ Install [Kubectl](https://kubernetes.io/docs/tasks/tools/) and [minikube](https:
 
 ## Deploy the Helm chart
 
-    helm upgrade --install app-deployment app-deployment/ --values my_values.yaml
-​  
-    helm list            # To see installed charts  
-    minikube dashboard   # Opens a web UI for debugging
-    minikube service app --url # Get service address
+        helm upgrade --install app-deployment app-deployment/ --values my_values.yaml
+ 
+        
+        helm list               # To see installed charts 
+        
+        minikube dashboard      # Opens a web UI for debugging
+
+        minikube service app --url  # Get service address
 
 # Monitoring
 
@@ -352,9 +357,9 @@ You can add Prometheus and Grafana as dependencies in a Chart.yaml file or use H
     
     helm repo update
 
-    helm install prometheus prometheus-community/prometheus --namespace my-namespace
+    helm install prometheus prometheus-community/prometheus --namespace my-app-namespace
   
-    helm install grafana grafana/grafana --namespace my-namespace
+    helm install grafana grafana/grafana --namespace my-app-namespace
 
  * ### Configure Prometheus to Scrape Application MetricsAccessing dashboard
 
@@ -364,5 +369,5 @@ You can add Prometheus and Grafana as dependencies in a Chart.yaml file or use H
  * ### Use 'kubectl port-forward" to access Grafana’s UI:
        kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring
 
- * #### Login to Grafana (default credentials: admin/admin), add Prometheus as a data source, and create dashboards to visualize the metrics.
+ * #### Access dashboards at http://localhost:3000/dashboards, default creds: admin:prom-operator
  ![alt text](<Screenshot from 2024-08-18 21-27-55.png>)
